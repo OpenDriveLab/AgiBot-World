@@ -27,7 +27,7 @@
 # Get started 🔥
 Our project relies solely on the lerobot library (dataset `v2.0`), We would like to express our gratitude to the developers of lerobot for their outstanding contributions to the community, please follow their [installation instructions](https://github.com/huggingface/lerobot).
 
-To train a simple Difffusion Policy, please refer to this [Jupyter](https://github.com/OpenDriveLab/Agibot-World/AgibotWorld.ipynb).
+Suppose you have already downloaded the dataset from Hugging Face, we recommend converting it into the LeRobot format based on the data preprocessing section. Next, to train a simple Difffusion Policy, please refer to this [Jupyter](https://github.com/OpenDriveLab/Agibot-World/AgibotWorld.ipynb).
 
 
 # License and Citation
