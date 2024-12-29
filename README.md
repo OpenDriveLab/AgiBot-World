@@ -1,4 +1,8 @@
-<img src="assets/agibot_world.gif" alt="Image Alt Text" width="80%" style="display: block; margin-left: auto; margin-right: auto;" />
+
+<p align="center">
+  <img src="assets/agibot_world.gif">
+</p>
+
 
 <div id="top" align="center">
 
