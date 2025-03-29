@@ -125,7 +125,7 @@ pip install openxlab # install CLI
 openxlab dataset get --dataset-repo OpenDriveLab/AgiBot-World # dataset download
 ```
 
-- [OPTION 2] Download data from our [HuggingFace](https://huggingface.co/datasets/agibot-world/AgiBotWorld-Alpha) page.
+- [OPTION 2] Download data from our [Hugging Face](https://huggingface.co/datasets/agibot-world/AgiBotWorld-Alpha) page.
 
 ```bash
 huggingface-cli download --resume-download --repo-type dataset agibot-world/AgiBotWorld-Alpha --local-dir ./AgiBotWorld-Alpha
