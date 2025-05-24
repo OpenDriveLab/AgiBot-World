@@ -1,4 +1,4 @@
-# Manipulation Baseline
+# AgiBot-World Challenge IROS2025 - Manipulation Baseline
 We adopt [UniVLA](https://github.com/OpenDriveLab/UniVLA) as the baseline model for the [AgiBot World Challenge @ IROS 2025](https://agibot-world.com/challenge) - Manipulation track.
 
 This repo provides a minimal version of training codes.
