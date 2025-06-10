@@ -16,7 +16,7 @@ conda activate univla
 
 ```bash
 # Clone our repo and pip install to download dependencies
-git clone -b Manipulation-Challenge https://github.com/OpenDriveLab/AgiBot-World.git
+git clone -b manipulation-challenge https://github.com/OpenDriveLab/AgiBot-World.git
 pip install -r requirements.txt
 
 # Install Flash Attention 2 for training (https://github.com/Dao-AILab/flash-attention)

@@ -1,6 +1,6 @@
 absl_py==2.1.0
 accelerate==0.32.1
-braceexpand=0.1.7
+braceexpand==0.1.7
 draccus==0.8.0
 einops==0.8.1
 ema_pytorch==0.5.1
