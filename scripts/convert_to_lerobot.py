@@ -93,7 +93,7 @@ FEATURES = {
     },
     "observation.images.head_center_fisheye": {
         "dtype": "video",
-        "shape": [748, 960, 3],
+        "shape": [768, 960, 3],
         "names": ["height", "width", "channel"],
         "video_info": {
             "video.fps": 30.0,
@@ -105,7 +105,7 @@ FEATURES = {
     },
     "observation.images.head_left_fisheye": {
         "dtype": "video",
-        "shape": [748, 960, 3],
+        "shape": [768, 960, 3],
         "names": ["height", "width", "channel"],
         "video_info": {
             "video.fps": 30.0,
@@ -117,7 +117,7 @@ FEATURES = {
     },
     "observation.images.head_right_fisheye": {
         "dtype": "video",
-        "shape": [748, 960, 3],
+        "shape": [768, 960, 3],
         "names": ["height", "width", "channel"],
         "video_info": {
             "video.fps": 30.0,
@@ -129,7 +129,7 @@ FEATURES = {
     },
     "observation.images.back_left_fisheye": {
         "dtype": "video",
-        "shape": [748, 960, 3],
+        "shape": [768, 960, 3],
         "names": ["height", "width", "channel"],
         "video_info": {
             "video.fps": 30.0,
@@ -141,7 +141,7 @@ FEATURES = {
     },
     "observation.images.back_right_fisheye": {
         "dtype": "video",
-        "shape": [748, 960, 3],
+        "shape": [768, 960, 3],
         "names": ["height", "width", "channel"],
         "video_info": {
             "video.fps": 30.0,
