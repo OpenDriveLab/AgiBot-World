@@ -36,7 +36,7 @@ pip install "flash-attn==2.5.5" --no-build-isolation
 
 - Download the weight of pretrained univla-7b from <td><a href="https://huggingface.co/qwbu/univla-7b">univla-7b</a></td>.
 
-### :four: Training
+### :two: Training
 
 ```bash
 # Start training with 8 GPUs
