@@ -409,7 +409,7 @@ ACTIONEXPERT_ATTENTION_CLASSES = {
 }
 
 
-class ActionExertDecoderLayer(nn.Module):
+class ActionExpertDecoderLayer(nn.Module):
     def __init__(self, config: ActionExpertConfig):
         super().__init__()
         self.hidden_size = config.hidden_size
@@ -505,7 +505,7 @@ class ActionExpertPretrainedModel(PreTrainedModel):
     config_class = ActionExpertConfig
     base_model_prefix = "model"
     supports_gradient_checkpointing = True
-    _no_split_modules = ["ActionExertDecoderLayer"]
+    _no_split_modules = ["ActionExpertDecoderLayer"]
     _skip_keys_device_placement = "past_key_values"
     _supports_flash_attn_2 = True
 
@@ -582,7 +582,7 @@ class ActionExpertModel(ActionExpertPretrainedModel):
             self.config.attn_implementation = "eager"
             print("Warning: Flash attention is not available, using eager attention instead.")
 
-        self.layers = nn.ModuleList([ActionExertDecoderLayer(config) for _ in range(config.num_hidden_layers)])
+        self.layers = nn.ModuleList([ActionExpertDecoderLayer(config) for _ in range(config.num_hidden_layers)])
         self.norm = InternLM2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)
 
         self.gradient_checkpointing = False

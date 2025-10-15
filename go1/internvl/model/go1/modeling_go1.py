@@ -111,7 +111,7 @@ class GO1Model(PreTrainedModel):
     _no_split_modules = [
         "InternVisionModel",
         "InternLM2DecoderLayerGO1",
-        "ActionExertDecoderLayer",
+        "ActionExpertDecoderLayer",
     ]
     _supports_flash_attn_2 = True
 
