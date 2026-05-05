@@ -97,6 +97,7 @@ class GO1ModelConfig(PretrainedConfig):
         self.norm = norm
         self.latent_planning = latent_planning
         self.action_chunk_size = self.action_config.action_chunk_size
+        self.initializer_range = 0.02
 
     def to_dict(self):
         """
