@@ -33,6 +33,7 @@ dependencies = [
     "huggingface_hub",
     "imageio",
     "json_numpy",
+    "kernels",
     "lerobot @ git+https://github.com/huggingface/lerobot.git@2b71789e15c35418b1ccecbceb81f4a598bfd883",
     "matplotlib",
     "numpy<2",

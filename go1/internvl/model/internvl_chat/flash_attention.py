@@ -3,12 +3,14 @@ import torch
 import torch.nn as nn
 from einops import rearrange
 
-try:  # v1
-    from flash_attn.flash_attn_interface import flash_attn_unpadded_qkvpacked_func
-except:  # v2
-    from flash_attn.flash_attn_interface import flash_attn_varlen_qkvpacked_func as flash_attn_unpadded_qkvpacked_func
+from go1.internvl.model.flash_attn_utils import load_flash_attn
 
-from flash_attn.bert_padding import pad_input, unpad_input
+_flash_attn_symbols = load_flash_attn()
+if not _flash_attn_symbols:
+    raise ImportError("flash_attn is not installed.")
+flash_attn_unpadded_qkvpacked_func = _flash_attn_symbols["flash_attn_varlen_qkvpacked_func"]
+pad_input = _flash_attn_symbols["pad_input"]
+unpad_input = _flash_attn_symbols["unpad_input"]
 
 
 class FlashAttention(nn.Module):

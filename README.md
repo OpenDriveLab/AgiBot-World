@@ -122,6 +122,12 @@ conda activate go1
 > ⚡️ Our environment has been tested with **CUDA 12.4**.
 ```bash
 pip install -e .
+```
+
+Flash Attention is loaded through the [`kernels`](https://github.com/huggingface/kernels) library (installed by the command above), which fetches pre-built Flash Attention 2 binaries on first use — no local compilation required. The binaries are bit-exact with the upstream source build.
+
+If your machine is not covered by the pre-built binaries, the code automatically falls back to a source build of `flash-attn`, which you can install with:
+```bash
 pip install --no-build-isolation flash-attn==2.4.2
 ```
 

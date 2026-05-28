@@ -14,21 +14,18 @@ from go1.internvl.model.internlm2.modeling_internlm2 import InternLM2MLP, Intern
 
 from .configuration_action_expert import ActionExpertConfig
 
+from go1.internvl.model.flash_attn_utils import load_flash_attn
+
 flash_attn_func, flash_attn_varlen_func = None, None
 pad_input, index_first_axis, unpad_input = None, None, None
-try:
-    from flash_attn import flash_attn_func as _flash_attn_func, flash_attn_varlen_func as _flash_attn_varlen_func
-    from flash_attn.bert_padding import (
-        index_first_axis as _index_first_axis,
-        pad_input as _pad_input,
-        unpad_input as _unpad_input,
-    )
-
-    flash_attn_func, flash_attn_varlen_func = _flash_attn_func, _flash_attn_varlen_func
-    pad_input, index_first_axis, unpad_input = _pad_input, _index_first_axis, _unpad_input
-    has_flash_attn = True
-except:
-    has_flash_attn = False
+_flash_attn_symbols = load_flash_attn()
+has_flash_attn = bool(_flash_attn_symbols)
+if has_flash_attn:
+    flash_attn_func = _flash_attn_symbols["flash_attn_func"]
+    flash_attn_varlen_func = _flash_attn_symbols["flash_attn_varlen_func"]
+    pad_input = _flash_attn_symbols["pad_input"]
+    index_first_axis = _flash_attn_symbols["index_first_axis"]
+    unpad_input = _flash_attn_symbols["unpad_input"]
 import logging
 
 from go1.internvl.model.internlm2.modeling_internlm2 import (

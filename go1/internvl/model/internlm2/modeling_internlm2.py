@@ -51,38 +51,31 @@ logger = logging.get_logger(__name__)
 
 _CONFIG_FOR_DOC = "InternLM2Config"
 
+from go1.internvl.model.flash_attn_utils import load_flash_attn
+
 flash_attn_func, flash_attn_varlen_func = None, None
 pad_input, index_first_axis, unpad_input = None, None, None
-try:
-    from flash_attn import flash_attn_func as _flash_attn_func, flash_attn_varlen_func as _flash_attn_varlen_func
-    from flash_attn.bert_padding import (
-        index_first_axis as _index_first_axis,
-        pad_input as _pad_input,
-        unpad_input as _unpad_input,
-    )
-
-    flash_attn_func, flash_attn_varlen_func = _flash_attn_func, _flash_attn_varlen_func
-    pad_input, index_first_axis, unpad_input = _pad_input, _index_first_axis, _unpad_input
-    has_flash_attn = True
-except:
-    has_flash_attn = False
+_flash_attn_symbols = load_flash_attn()
+has_flash_attn = bool(_flash_attn_symbols)
+if has_flash_attn:
+    flash_attn_func = _flash_attn_symbols["flash_attn_func"]
+    flash_attn_varlen_func = _flash_attn_symbols["flash_attn_varlen_func"]
+    pad_input = _flash_attn_symbols["pad_input"]
+    index_first_axis = _flash_attn_symbols["index_first_axis"]
+    unpad_input = _flash_attn_symbols["unpad_input"]
 
 
 def _import_flash_attn():
     global flash_attn_func, flash_attn_varlen_func
     global pad_input, index_first_axis, unpad_input
-    try:
-        from flash_attn import flash_attn_func as _flash_attn_func, flash_attn_varlen_func as _flash_attn_varlen_func
-        from flash_attn.bert_padding import (
-            index_first_axis as _index_first_axis,
-            pad_input as _pad_input,
-            unpad_input as _unpad_input,
-        )
-
-        flash_attn_func, flash_attn_varlen_func = _flash_attn_func, _flash_attn_varlen_func
-        pad_input, index_first_axis, unpad_input = _pad_input, _index_first_axis, _unpad_input
-    except ImportError:
+    symbols = load_flash_attn()
+    if not symbols:
         raise ImportError("flash_attn is not installed.")
+    flash_attn_func = symbols["flash_attn_func"]
+    flash_attn_varlen_func = symbols["flash_attn_varlen_func"]
+    pad_input = symbols["pad_input"]
+    index_first_axis = symbols["index_first_axis"]
+    unpad_input = symbols["unpad_input"]
 
 
 # Copied from transformers.models.llama.modeling_llama._get_unpad_data
