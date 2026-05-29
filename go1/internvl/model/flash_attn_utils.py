@@ -52,9 +52,9 @@ def _load_from_kernels():
         bert_padding = module.bert_padding
         logger.info("Loaded pre-built Flash Attention 2 binaries via `kernels` (%s).", _FLASH_ATTN_KERNEL)
         return {
-            "flash_attn_func": interface.flash_attn_func,
-            "flash_attn_varlen_func": interface.flash_attn_varlen_func,
-            "flash_attn_varlen_qkvpacked_func": interface.flash_attn_varlen_qkvpacked_func,
+            "flash_attn_func": module.flash_attn_func,
+            "flash_attn_varlen_func": module.flash_attn_varlen_func,
+            "flash_attn_varlen_qkvpacked_func": module.flash_attn_varlen_qkvpacked_func,
             "pad_input": bert_padding.pad_input,
             "unpad_input": bert_padding.unpad_input,
             "index_first_axis": bert_padding.index_first_axis,
